@@ -1,0 +1,419 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Lecture #01: Course Introduction and the Relational Model · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.7.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="project/" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="Lecture01.html">
+            
+                <a href="Lecture01.html">
+            
+                    
+                    Lecture #01: Course Introduction and the Relational Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="project/">
+            
+                <a href="project/">
+            
+                    
+                    Project
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="project/project0.html">
+            
+                <a href="project/project0.html">
+            
+                    
+                    Project #0
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="assignment/">
+            
+                <a href="assignment/">
+            
+                    
+                    Assignment
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Lecture #01: Course Introduction and the Relational Model</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="flat-file">Flat file:</h2>
+<p>such as comma-separated value (CSV) files<br>problems:</p>
+<ul>
+<li>data integrity: validity, same values, removal</li>
+<li>implementation: efficiency, cocurrency</li>
+<li>durability: crash, replicate  </li>
+</ul>
+<p>从 flat file 在存储,使用上的问题引出 DBMS 存在的必要</p>
+<h2 id="database-management-system-dbms">Database management system (DBMS):</h2>
+<p>a software that allows applications to store and analyze information in a database<br>purpose: allow the definition, creation, querying, update, and administration of databases</p>
+<p>提到了sqlite，运行在移动端的数据库，是数量最多的数据库</p>
+<h2 id="relational-model">Relational model</h2>
+<p>Proposed in 1970 by Ted Codd<br>&quot;A Relational Model of Data for Large Shared Data Banks&quot;<br>关系模型开山之作</p>
+<h2 id="data-models">Data models</h2>
+<ol>
+<li>data model:<br>a collection of concepts for describing the data in a database</li>
+<li>schema (模式):<br>a description of a particular collection of data, using a given data model</li>
+</ol>
+<p>schema和catalog的理解 <a href="https://www.zhihu.com/question/20355738/answer/1241628708" target="_blank">来源</a>:  </p>
+<ul>
+<li>在关系型数据库中，分三级：database.schema.table。即一个数据库下面可以包含多个schema，一个schema下可以包含多个数据库对象，比如表、存储过程、触发器等。但并非所有数据库都实现了schema这一层，比如mysql直接把schema和database等效了，PostgreSQL、Oracle、SQL server等的schema也含义不太相同。</li>
+<li>所以说，关系型数据库中没有catalog的概念。但在一些其它地方（特别是大数据领域的一些组件）有catalog的概念，也是用来做层级划分的，一般是这样的层级关系：catalog.database.table。</li>
+</ul>
+<h2 id="catagory">Catagory</h2>
+<ol>
+<li>Relational: Most DBMSs</li>
+<li>NoSQL: Key/Value, Graph, Document, Column-family</li>
+<li>Machine Learning: Array/Matrix</li>
+<li>Obsolete/Legacy/Rare: Hierarchical, Network, Multi-Value  </li>
+</ol>
+<p>几类常见的数据库，NoSQL同样需要学习，也很重要</p>
+<h2 id="concepts-about-relational-model">Concepts about relational model</h2>
+<ol>
+<li>Components:<ul>
+<li>Structure: The definition of the database&apos;s relations and their contents.</li>
+<li>Integrity: Ensure the database&apos;s contents satisfy constraints.</li>
+<li>Manipulation: Programming interface for accessing and modifying a database&apos;s contents.</li>
+</ul>
+</li>
+<li>Relation:<br>an unordered set that contain the relationship of attributes that represent entities</li>
+<li>Tuple (元组):  <ul>
+<li>a set of attribute values (also known as its domain 域) in the relation.  </li>
+<li>values are normally atomic/scalar (原子化/标量).</li>
+<li>NULL is a member of every domain.</li>
+<li>n-ary Relation (n元关系) = Table with n columns</li>
+</ul>
+</li>
+<li>Primary keys (主键):<ul>
+<li>uniquely identifies a single tuple</li>
+<li>random or increment values</li>
+</ul>
+</li>
+<li>Foreign keys (外键):<ul>
+<li>specifies that an attribute from one relation has to map to a tuple in another relation</li>
+<li>e.g. ArtistAlbum(artist_id, album_id) has two foreign keys for Artist(id, name, year, country) and Album(id, name, artists, year)</li>
+</ul>
+</li>
+</ol>
+<h2 id="data-manipulation-languages-dml">Data manipulation languages (DML)</h2>
+<p>Methods to store and retrieve information from a database.<br>包含三个层面: SQL 关系代数 关系演算</p>
+<ol>
+<li>Procedural:<ul>
+<li>Relational Algebra (关系代数)</li>
+<li>The query specifies the (high-level) strategy the DBMS should use to find the desired result.</li>
+<li>一步步规定好查询的每个步骤</li>
+</ul>
+</li>
+<li>Non-Procedural (Declarative):<ul>
+<li>Relational Calculus (关系演算)</li>
+<li>The query specifies only what data is wanted and not how to find it.</li>
+<li>只是指明想要查找到的数据是什么，实现交给DBMS</li>
+</ul>
+</li>
+</ol>
+<h2 id="relational-algebra">Relational algebra</h2>
+<ol>
+<li>Fundamental operators:<ul>
+<li>Each operator takes one or more relations as its inputs and ouputs a new relation</li>
+<li>Select: 按条件(合取 析取)选择</li>
+<li>Projection: 改变顺序，修改值(b_id-100)</li>
+<li>Union</li>
+<li>Intersection</li>
+<li>Difference</li>
+<li>Product: 笛卡尔积</li>
+<li>Join (自然连接): 两个关系都有的属性只取一个</li>
+</ul>
+</li>
+<li>Extra operators:<br>Rename, Assignment, Duplicate Elimination, Aggregation, Sorting, Division</li>
+<li>关系代数仍然定义了如何计算一个查询的高层次步骤, 而更好的方法是向DMBS陈述你想要计算的高层次查询结果</li>
+<li>Relational algebra defines the primitives (理解为原型) for processing queries on a relational database.</li>
+</ol>
+<h2 id="queries">Queries</h2>
+<p>The relational model is independent of any query language implementation, while SQL is the de facto standard (many dialects).</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="project/" class="navigation navigation-next " aria-label="Next page: Project">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Lecture #01: Course Introduction and the Relational Model","level":"1.2","depth":1,"next":{"title":"Project","level":"1.3","depth":1,"path":"project/index.md","ref":"project/index.md","articles":[{"title":"Project #0","level":"1.3.1","depth":2,"path":"project/project0.md","ref":"project/project0.md","articles":[]}]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Lecture01.md","mtime":"2022-05-30T14:33:33.870Z","type":"markdown"},"gitbook":{"version":"3.7.3","time":"2022-05-30T14:35:09.371Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
